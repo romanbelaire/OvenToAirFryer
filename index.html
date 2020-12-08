@@ -1,0 +1,66 @@
+<html>
+<head>
+<title> Oven to Air Fryer Conversion</title>
+<style>.body{font-family: arial;}</style>
+<script language = "javascript">
+function calculate(){
+var temperature = document.getElementById("degreesInput").value;
+var hours = document.getElementById("hoursInput").value;
+var mins = document.getElementById("minsInput").value;
+var timeTotal = parseInt(hours * 60) + parseInt(mins);
+var tempScale = "Fahrenheit";
+
+var tempScaleRadio = document.getElementById("tempRadioC");
+if(tempScaleRadio.checked){ //Celsius is checked
+	temperature = (temperature * (9/5)) + 32; 
+	tempScale = "Celsius";
+	}//convert temp to F for calculations
+	
+//adjust temp according to how high/low it is
+if(temperature < 250) { temperature -= 15; }
+else if (temperature < 320) { temperature -= 20; }
+else if (temperature < 405) { temperature -= 25; }
+else { temperature -= 30; }
+
+//if temp was celcius, convert back
+if(tempScaleRadio.checked){ //Celsius is checked
+	temperature = (temperature -32) * (5/9); 
+	}
+
+timeTotal = Math.round(timeTotal * 0.8);
+temperature = Math.round(temperature);
+
+var outputText = "Air fryer cook time is approximately " + timeTotal.toString() + " minutes at " + temperature.toString() + " degrees " + tempScale + ".";
+
+document.getElementById("output").textContent = outputText;
+}
+
+
+</script>
+<noscript>Enable JavaScript to use the converter! Alternately, follow this rule of thumb: reduce temperature by 25 degrees (Fahrenheit) and reduce cook time by 20%.</noscript>
+<script data-ad-client="ca-pub-1178033559597983" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+
+<body class = "body">
+<center><h1>Oven to Air Fryer Cook Time Converter</h1>
+
+Cooking instructions call for an oven cook time of <input type = "number" id = "hoursInput" name = "hoursInput" value = "0" size = 2 min = 0></input> hours and 
+								<input type = "number" name = "minsInput" id = "minsInput" value = "30" size = 2 step = 5 min = 0 max = 60></input> minutes, at 
+								<input type = "number" name = "degreesInput" id = "degreesInput" value = "300" size = 3 step = 5 min = 90 max = 550></input> 
+								<input type = "radio" name = "tempScaleRadio" id = "tempRadioF" value = "f" checked = "true"></input><span>&#176;</span>F   
+								<input type = "radio" name = "tempScaleRadio" id = "tempRadioC" value = "c" checked = "false"></input><span>&#176;</span>C 
+								</br></br>
+<button type = "button" onclick = "calculate()">Calculate</button> 
+</br></br>
+<h2 id = "output"> </br></h2>
+General rule of thumb: reduce temperature by 25 degrees (Fahrenheit) and reduce cook time by 20%.</br>
+<hr style="width:50%;"> 
+<h2>Air Fryer Cook Time Chart</h2>
+Cooking times will vary; The chart below is for raw, unfrozen food and will vary between air fryer models. </br>
+If you don't already, consider measuring your food's temperature with an <a href src = "http://www.amazon.com/dp/B089YQ549Q/ref=nosim?tag=romanbelair08-20">electronic meat thermometer (affiliate link)</a>!</br></br>
+<img src="media/CookTimeChart.jpg" alt="Air Fryer Cooking Times Chart">
+
+</center>
+</body>
+</html>
