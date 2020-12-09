@@ -12,10 +12,10 @@ var tempScale = "Fahrenheit";
 
 var tempScaleRadio = document.getElementById("tempRadioC");
 if(tempScaleRadio.checked){ //Celsius is checked
-	temperature = (temperature * (9/5)) + 32; 
+	temperature = (temperature * (9/5)) + 32;
 	tempScale = "Celsius";
 	}//convert temp to F for calculations
-	
+
 //adjust temp according to how high/low it is
 if(temperature < 250) { temperature -= 15; }
 else if (temperature < 320) { temperature -= 20; }
@@ -24,7 +24,7 @@ else { temperature -= 30; }
 
 //if temp was celcius, convert back
 if(tempScaleRadio.checked){ //Celsius is checked
-	temperature = (temperature -32) * (5/9); 
+	temperature = (temperature -32) * (5/9);
 	}
 
 timeTotal = Math.round(timeTotal * 0.8);
@@ -43,19 +43,18 @@ document.getElementById("output").textContent = outputText;
 
 
 <body class = "body">
-<center><h1>Oven to Air Fryer Cook Time Converter</h1>
-
-Cooking instructions call for an oven cook time of <input type = "number" id = "hoursInput" name = "hoursInput" value = "0" size = 2 min = 0></input> hours and 
-								<input type = "number" name = "minsInput" id = "minsInput" value = "30" size = 2 step = 5 min = 0 max = 60></input> minutes, at 
-								<input type = "number" name = "degreesInput" id = "degreesInput" value = "300" size = 3 step = 5 min = 90 max = 550></input> 
-								<input type = "radio" name = "tempScaleRadio" id = "tempRadioF" value = "f" checked = "true"></input><span>&#176;</span>F   
-								<input type = "radio" name = "tempScaleRadio" id = "tempRadioC" value = "c" checked = "false"></input><span>&#176;</span>C 
+<center><h1>Oven to Air Fryer Cook Time Calculator</h1>
+Cooking instructions call for an oven cook time of <input type = "number" id = "hoursInput" name = "hoursInput" value = "0" size = 2 min = 0></input> hours and
+								<input type = "number" name = "minsInput" id = "minsInput" value = "30" size = 2 step = 5 min = 0 max = 60></input> minutes, at
+								<input type = "number" name = "degreesInput" id = "degreesInput" value = "300" size = 3 step = 5 min = 90 max = 550></input>
+								<input type = "radio" name = "tempScaleRadio" id = "tempRadioF" value = "f" checked = "True"></input><span>&#176;</span>F
+								<input type = "radio" name = "tempScaleRadio" id = "tempRadioC" value = "c"></input><span>&#176;</span>C
 								</br></br>
-<button type = "button" onclick = "calculate()">Calculate</button> 
+<button type = "button" onclick = "calculate()">Calculate</button>
 </br></br>
 <h2 id = "output"> </br></h2>
 General rule of thumb: reduce temperature by 25 degrees (Fahrenheit) and reduce cook time by 20%.</br>
-<hr style="width:50%;"> 
+<hr style="width:50%;">
 <h2>Air Fryer Cook Time Chart</h2>
 Cooking times will vary; The chart below is for raw, unfrozen food and will vary between air fryer models. </br>
 If you don't already, consider measuring your food's temperature with an <a href src = "http://www.amazon.com/dp/B089YQ549Q/ref=nosim?tag=romanbelair08-20">electronic meat thermometer (affiliate link)</a>!</br></br>
